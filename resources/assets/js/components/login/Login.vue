@@ -17,6 +17,7 @@
   	></v-text-field>
 
   	<v-btn type="submit" color="green">Login</v-btn>
+		<router-link to="/signup"><v-btn color="gray">Sugn up</v-btn></router-link>
 
   </v-form>
 </v-container>
@@ -32,11 +33,15 @@
 				}
 			}
 		},
+		created(){
+        if(User.loggedIn()){
+            this.$router.push({name:'forum'})
+        }
+    },
 		methods:{
 			login(){
 				// alert('login');
 				User.login(this.form)
-
 			}			
 		}
 	}
