@@ -8,12 +8,15 @@
                 :question=question
                 ></question>
             </v-flex>
-            sidebar
+            <v-flex xs4>
+                <app-sidebar></app-sidebar>
+            </v-flex>
         </v-layout>
     </v-container>
 </template>
 <script>
 import Question from './Question'
+import AppSidebar from './AppSidebar'
 
 export default {
     data(){
@@ -26,7 +29,7 @@ export default {
         .then(res => this.questions = res.data.data)
         .catch(error => console.log(error.response.data.data))
     },
-    components : {Question}
+    components : {Question,AppSidebar}
 }
 </script>
 
